@@ -23,6 +23,26 @@ const BlogForm = () => {
     }
   };
 
+  const handleSavePost = async () => {
+    try {
+      // Send the edited content to the backend API to save the blog post
+      const response = await fetch("http://localhost:5000/api/posts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ content }),
+      });
+      // Alert the user with a sucess message and clear the content
+      const data = await response.json();
+      alert(data.message);
+      setContent("");
+      setPrompt("");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="max-w-xl mx-auto mt-10 p-6 bg-white shadow-md rounded-md">
       <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">
@@ -65,6 +85,12 @@ const BlogForm = () => {
             value={content}
             onChange={(e) => setContent(e.target.value)}
           />
+          <button
+            onClick={handleSavePost}
+            className="my-3 py-2 w-full px-2 bg-indigo-600 text-white font-semibold rounded-md shadow-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          >
+            Save Post
+          </button>
         </div>
       )}
     </div>
