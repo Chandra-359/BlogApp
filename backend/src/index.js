@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 // Connect to MongoDB
 connectDB();
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 // Routes
 app.get("/api", (req, res) => {

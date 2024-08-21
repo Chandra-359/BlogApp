@@ -25,9 +25,55 @@ Welcome to the Blog Post Generator! This project is a simple full-stack web appl
 
 ## Installation
 
+### Prerequisites
+
+Make sure you have [Bun](https://bun.sh/docs/installation) installed on your machine. If not, you can install it by running:
+
+For Mac
+```bash
+brew install oven-sh/bun/bun
+```
+For Windows
+```bash
+powershell -c "irm bun.sh/install.ps1|iex"
+```
+
 To get started with the project, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/blog-post-generator.git
-   cd blog-post-generator
+   git clone https://github.com/Chandra-359/BlogApp 
+   cd BlogApp
+   ```
+2. Install dependencies for backend
+   ```bash
+   cd backend
+   bun install
+   ```
+3. Install dependencies for frontend
+   ```bash
+   cd frontend
+   bun install
+   ```
+4. Set up enviroment variables:
+   
+   Create a .env file in the root of the backend directory with the following content:
+   ```bash
+   OPENAI_API_KEY=your-openai-api-key
+   DB_URL=your-mongodb-uri
+   PORT=5000
+   ```
+
+
+## Running the Application
+
+1. Start the backend server
+   ```bash
+   bun start
+   ```
+2. Start the frontend development server
+   ```bash
+   bun run dev
+   ```
+3. Open your browser and navigate to  http://localhost:5173/ to see the application in action
+
