@@ -1,8 +1,9 @@
 import BlogForm from "./components/BlogForm";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 function App() {
   const [posts, setPosts] = useState([]);
+  const newPostRef = useRef(null); // Reference to the new post
 
   const handleDeletePost = async (id) => {
     try {
@@ -34,6 +35,17 @@ function App() {
 
   const handleNewPost = (newPost) => {
     setPosts((prevPosts) => [newPost, ...prevPosts]);
+
+    // Scroll to the new post and highlight it
+    setTimeout(() => {
+      if (newPostRef.current) {
+        newPostRef.current.scrollIntoView({ behavior: 'smooth' });
+        newPostRef.current.classList.add('animate-highlight');
+        setTimeout(() => {
+          newPostRef.current.classList.remove('animate-highlight');
+        }, 2000); // Remove the highlight effect after 2 seconds
+      }
+    }, 100);
   };
 
   return (
@@ -52,8 +64,12 @@ function App() {
         </h2>
         <ul className="max-w-4xl mx-auto space-y-6">
           {posts &&
-            posts.map((post) => (
-              <li key={post._id} className="bg-white p-6 rounded-lg shadow-lg">
+            posts.map((post, index) => (
+              <li
+                key={post._id}
+                className={`bg-white p-6 rounded-lg shadow-lg ${index === 0 ? '' : ''}`}
+                ref={index === 0 ? newPostRef : null} // Attach ref to the first post
+              >
                 <div className="mb-4">
                   <textarea
                     className="block w-full p-4 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm bg-gray-50"
