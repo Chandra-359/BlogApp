@@ -27,18 +27,19 @@ Welcome to the Blog Post Generator! This project is a simple full-stack web appl
 
 ### Prerequisites
 
-Make sure you have [Bun](https://bun.sh/docs/installation) installed on your machine. If not, you can install it by running:
+1. Make sure you have [Bun](https://bun.sh/docs/installation) installed on your machine. If not, you can install it by running:
 
-For Mac
-```bash
-brew install oven-sh/bun/bun
-```
-For Windows
-```bash
-powershell -c "irm bun.sh/install.ps1|iex"
-```
+   For Mac
+   ```bash
+   brew install oven-sh/bun/bun
+   ```
+   For Windows
+   ```bash
+   powershell -c "irm bun.sh/install.ps1|iex"
+   ```
+2. Make sure you have [Node JS](https://nodejs.org/en/download/package-manager) install on you machine.
 
-To get started with the project, follow these steps:
+#### To get started with the project, follow these steps:
 
 1. Clone the repository:
    ```bash
