@@ -33,6 +33,8 @@ app.post("/api/generate", async (req, res) => {
 app.get("/api/posts", async (req, res) => {
   // Retrieve all blogs from the database
   try {
+    console.log("Fetching posts");
+    
     const posts = await Post.find();
     res.json(posts);
   } catch (error) {

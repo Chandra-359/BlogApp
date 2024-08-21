@@ -1,13 +1,12 @@
 import { useState } from "react";
 
-const BlogForm = () => {
+const BlogForm = ({ onSavePost }) => {
   const [prompt, setPrompt] = useState("");
   const [content, setContent] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Send the prompt to the backend API to generate the blog post
       const response = await fetch("http://localhost:5000/api/generate", {
         method: "POST",
         headers: {
@@ -15,7 +14,6 @@ const BlogForm = () => {
         },
         body: JSON.stringify({ prompt }),
       });
-      // Set the generated content to the state to display
       const data = await response.json();
       setContent(data.GenText);
     } catch (error) {
@@ -25,7 +23,6 @@ const BlogForm = () => {
 
   const handleSavePost = async () => {
     try {
-      // Send the edited content to the backend API to save the blog post
       const response = await fetch("http://localhost:5000/api/posts", {
         method: "POST",
         headers: {
@@ -33,11 +30,15 @@ const BlogForm = () => {
         },
         body: JSON.stringify({ content }),
       });
-      // Alert the user with a sucess message and clear the content
       const data = await response.json();
       alert(data.message);
       setContent("");
       setPrompt("");
+
+      // Pass the new post back to the parent component
+      if (onSavePost) {
+        onSavePost(data.post);
+      }
     } catch (error) {
       console.log(error);
     }
