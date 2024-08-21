@@ -38,34 +38,36 @@ function App() {
 
   return (
     <>
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 p-4">
-        <h1 className="text-4xl font-bold text-slate-600 text-center mb-8 shadow-sm">
-          Lets Write a Blog
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-8">
+        <h1 className="text-5xl font-extrabold text-white text-center mb-12 shadow-lg">
+          Write Your Blog
         </h1>
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-xl mb-16">
           <BlogForm onSavePost={handleNewPost} />
         </div>
       </div>
-      <div>
-        <h1>Blog Posts</h1>
-        <ul>
+      <div className="bg-gray-100 py-10">
+        <h2 className="text-3xl font-semibold text-gray-800 text-center mb-8">
+          Blog Posts
+        </h2>
+        <ul className="max-w-4xl mx-auto space-y-6">
           {posts &&
             posts.map((post) => (
-              <li key={post._id}>
-                <div className="mt-8 p-4 bg-gray-100 rounded-md">
+              <li key={post._id} className="bg-white p-6 rounded-lg shadow-lg">
+                <div className="mb-4">
                   <textarea
-                    className="mt-2 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    rows="10"
+                    className="block w-full p-4 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm bg-gray-50"
+                    rows="8"
                     value={post.content}
                     readOnly
                   />
-                  <button
-                    onClick={() => handleDeletePost(post._id)}
-                    className="my-3 py-2 w-full px-2 bg-indigo-600 text-white font-semibold rounded-md shadow-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-                  >
-                    Delete Post
-                  </button>
                 </div>
+                <button
+                  onClick={() => handleDeletePost(post._id)}
+                  className="w-full py-2 px-4 bg-red-600 text-white font-semibold rounded-md shadow-md hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-400"
+                >
+                  Delete Post
+                </button>
               </li>
             ))}
         </ul>
