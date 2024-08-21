@@ -7,9 +7,6 @@ Welcome to the Blog Post Generator! This project is a simple full-stack web appl
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Running the Application](#running-the-application)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 - Generate blog posts based on user-provided prompts using OpenAI's GPT API.
