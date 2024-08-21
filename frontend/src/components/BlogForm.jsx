@@ -54,6 +54,11 @@ const BlogForm = ({ onSavePost }) => {
     }
   };
 
+  const handleDiscard = () => {
+    setContent("");
+    setSuccessMessage("");
+  };
+
   return (
     <div className="max-w-xl mx-auto p-8 bg-white shadow-2xl rounded-lg">
       <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
@@ -123,39 +128,47 @@ const BlogForm = ({ onSavePost }) => {
             value={content}
             onChange={(e) => setContent(e.target.value)}
           />
-          <button
-            onClick={handleSavePost}
-            className="mt-4 w-full py-3 px-4 bg-green-600 text-white font-semibold rounded-md shadow-md hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-400 flex items-center justify-center"
-            disabled={isLoading}
-          >
-            {isLoading ? (
-              <>
-                <svg
-                  className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  ></circle>
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8v8H4z"
-                  ></path>
-                </svg>
-                Saving...
-              </>
-            ) : (
-              "Save Post"
-            )}
-          </button>
+          <div className="flex space-x-4 mt-4">
+            <button
+              onClick={handleSavePost}
+              className="w-full py-3 px-4 bg-green-600 text-white font-semibold rounded-md shadow-md hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-400 flex items-center justify-center"
+              disabled={isLoading}
+            >
+              {isLoading ? (
+                <>
+                  <svg
+                    className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v8H4z"
+                    ></path>
+                  </svg>
+                  Saving...
+                </>
+              ) : (
+                "Save Post"
+              )}
+            </button>
+            <button
+              onClick={handleDiscard}
+              className="w-full py-3 px-4 bg-red-600 text-white font-semibold rounded-md shadow-md hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-400"
+            >
+              Discard
+            </button>
+          </div>
         </div>
       )}
 
