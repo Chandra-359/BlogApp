@@ -70,7 +70,7 @@ const BlogForm = ({ onSavePost }) => {
             htmlFor="prompt"
             className="block text-sm font-medium text-gray-700"
           >
-            Enter Prompt:
+            What&apos;s on your mind today?
           </label>
           <input
             type="text"
@@ -78,7 +78,7 @@ const BlogForm = ({ onSavePost }) => {
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
             className="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            placeholder="Type your prompt here..."
+            placeholder="Let me help you write down your thoughts..."
             required
           />
         </div>

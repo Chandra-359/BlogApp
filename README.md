@@ -2,6 +2,9 @@
 
 Welcome to the Blog Post Generator! This project is a simple full-stack web application that allows users to generate and manage blog posts using a Large Language Model (LLM) API, specifically OpenAI's GPT. The application is built using the MERN stack (MongoDB, Express, React, Node.js) and leverages Bun as the package manager.
 
+## Loom Video URL 
+[Loom video that is a demo of the application](https://www.loom.com/share/86461cf31f234b639f89357fb9a530ad?sid=10826c83-8c0a-4fa6-bc09-df24f43bcb2b)
+
 ## Table of Contents
 - [Features](#features)
 - [Technologies Used](#technologies-used)
